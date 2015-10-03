@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gizmo.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @gizmo.status %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @gizmo.color %>
+</p>
+
+<%= link_to 'Edit', edit_gizmo_path(@gizmo) %> |
+<%= link_to 'Back', gizmos_path %>

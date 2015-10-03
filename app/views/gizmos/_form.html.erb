@@ -1,0 +1,32 @@
+<%= form_for(gizmo) do |f| %>
+  <% if gizmo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gizmo.errors.count, "error") %> prohibited this gizmo from being saved:</h2>
+
+      <ul>
+      <% gizmo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
