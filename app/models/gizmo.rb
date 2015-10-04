@@ -11,17 +11,16 @@ class Gizmo < ActiveRecord::Base
   }
 
   belongs_to :family
+  validates :name, :presence => true, uniqueness: { scope: :family_id }
+  validates :color, :presence => { message: "color is required" }
 
-  before_validation do |r|
-    r.color &&= COLOR_MAP[r.color.downcase] || r.color.downcase.gsub('#','')
+  def color=(c)
+    c &&= COLOR_MAP[c.downcase] || c.downcase.gsub('#','')
+    self.color_int = self.class.int_from_hex(c)
   end
 
-  def color_int
-    self.class.int_from_hex(color)
-  end
-
-  def color_hex
-    "##{color}"
+  def color
+    "#{self.class.hex_from_int(color_int)}"
   end
 
   def text_status
@@ -29,7 +28,7 @@ class Gizmo < ActiveRecord::Base
   end
 
   def fill_color
-    status ? color_hex : UNLIT
+    status ? color : UNLIT
   end
 
   def fill_color_int
@@ -37,11 +36,11 @@ class Gizmo < ActiveRecord::Base
   end
 
   def stroke_color
-    color_hex
+    color
   end
 
   def self.int_from_hex(h)
-    h.sub('#','').gsub("00","0").gsub("ff","1").to_i(2)
+    h ? h.sub('#','').gsub("00","0").gsub("ff","1").to_i(2) : 0
   end
 
   def self.hex_from_int(i)

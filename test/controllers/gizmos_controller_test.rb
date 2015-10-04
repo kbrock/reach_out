@@ -2,7 +2,8 @@ require 'test_helper'
 
 class GizmosControllerTest < ActionController::TestCase
   setup do
-    @gizmo = Gizmo.create(:name => 'reid', :color => '000000ff', :status => true)
+    f = Family.create(:name => 'default')
+    @gizmo = Gizmo.create(:name => 'reid', :color => '0000ff', :status => true, :family => f)
   end
 
   test "should get index" do

@@ -3,16 +3,20 @@ require 'test_helper'
 class GizmoTest < ActiveSupport::TestCase
 
   #validation
-  test "initialize removes hash" do
-    assert_equal "000000", gizmo(:color => "#000000").color
+  test "initialize works with nonhash" do
+    assert_equal "#000000", gizmo(:color => "000000").color
+  end
+
+  test "initialize works with hashes" do
+    assert_equal "#ff0000", gizmo(:color => "#ff0000").color
   end
 
   test "initialize downcases" do
-    assert_equal "000000ff", gizmo(:color => "#000000FF").color
+    assert_equal "#0000ff", gizmo(:color => "0000FF").color
   end
 
   test "initialize lookup" do
-    assert_equal "ff0000", gizmo(:color => "r").color
+    assert_equal "#ff0000", gizmo(:color => "r").color
   end
 
   #test_status
