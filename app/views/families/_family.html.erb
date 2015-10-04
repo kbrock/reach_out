@@ -1,8 +1,6 @@
 
-<p>
-<%= render partial: "gizmos/gizmo", collection: family.gizmos %>
-<%= link_to gizmo_svg, new_gizmo_url(:gizmo => {:family_id => @family.id}), class: "gizmo-new" %>
-</p>
-<p>
-  <%= link_to family.name, edit_family_path(@family) %>
-</p>
+<div>
+<%= link_to gizmo_svg(family), edit_family_path(family) %>
+<%= render family.gizmos %>
+<%= link_to gizmo_svg, new_gizmo_path(:gizmo => {:family_id => family.id}), class: "gizmo-new" %>
+</div>

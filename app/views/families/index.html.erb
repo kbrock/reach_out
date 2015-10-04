@@ -1,24 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Families</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @families.each do |family| %>
-      <tr>
-        <td><%= link_to gizmo_svg(family), family %></td>
-        <td><%= render partial: "gizmos/gizmo", collection: family.gizmos %></td>
-      </tr>
-    <% end %>
-    <tr>
-    <td><%= link_to '+', new_family_path %></td>
-    </tr>
-  </tbody>
-</table>
+<div id="families">
+<%= render @families, spacer_template: "_br" %>
+</div>
+<div>
+<%= link_to gizmo_svg, new_family_path, class: "gizmo-new" %>
+</div>

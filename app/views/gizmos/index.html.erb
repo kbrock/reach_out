@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<%= render partial: "gizmos/gizmo", collection: @gizmos %>
-<%= link_to gizmo_svg, new_gizmo_url, class: "gizmo-new" %>
+<%= render @gizmos %>
+<%= link_to gizmo_svg, new_gizmo_path, class: "gizmo-new" %>
 <br>
