@@ -34,11 +34,11 @@ class GizmoTest < ActiveSupport::TestCase
 
   #fill_color_int
   test "fill_color_int white lit" do
-    assert_equal 16777215, gizmo(:status => true, :color => "w").fill_color_int
+    assert_equal 7, gizmo(:status => true, :color => "w").fill_color_int
   end
 
   test "fill_color_int red lit" do
-    assert_equal 16711680, gizmo(:status => true, :color => "r").fill_color_int
+    assert_equal 4, gizmo(:status => true, :color => "r").fill_color_int
   end
 
   test "fill_color_int unlint" do

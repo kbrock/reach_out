@@ -41,10 +41,10 @@ class Gizmo < ActiveRecord::Base
   end
 
   def self.int_from_hex(h)
-    h.sub('#','').to_i(16)
+    h.sub('#','').gsub("00","0").gsub("ff","1").to_i(2)
   end
 
   def self.hex_from_int(i)
-    "##{i.to_s(16).downcase.rjust(6,'0')}"
+    "##{i.to_s(2).rjust(3,'0').gsub("0","00").gsub("1","ff")}"
   end
 end
