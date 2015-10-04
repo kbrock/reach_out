@@ -2,7 +2,7 @@ require 'test_helper'
 
 class GizmosControllerTest < ActionController::TestCase
   setup do
-    @gizmo = gizmos(:one)
+    @gizmo = Gizmo.create(:name => 'reid', :color => '000000ff', :status => true)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class GizmosControllerTest < ActionController::TestCase
 
   test "should create gizmo" do
     assert_difference('Gizmo.count') do
-      post :create, params: { gizmo: { color: @gizmo.color, name: @gizmo.name, password: @gizmo.password, status: @gizmo.status } }
+      post :create, params: { gizmo: { color: @gizmo.color, name: @gizmo.name, status: @gizmo.status } }
     end
 
     assert_redirected_to gizmo_path(Gizmo.last)
@@ -34,7 +34,7 @@ class GizmosControllerTest < ActionController::TestCase
   end
 
   test "should update gizmo" do
-    patch :update, params: { id: @gizmo, gizmo: { color: @gizmo.color, name: @gizmo.name, password: @gizmo.password, status: @gizmo.status } }
+    patch :update, params: { id: @gizmo, gizmo: { color: @gizmo.color, name: @gizmo.name, status: @gizmo.status } }
     assert_redirected_to gizmo_path(@gizmo)
   end
 

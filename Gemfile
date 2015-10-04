@@ -25,7 +25,7 @@ gem 'coffee-rails', github: "rails/coffee-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', github: "rails/turbolinks"
 
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FamiliesControllerTest < ActionController::TestCase
   setup do
-    @family = families(:one)
+    @family = Family.create(:name => 'happy')
   end
 
   test "should get index" do
@@ -20,7 +20,7 @@ class FamiliesControllerTest < ActionController::TestCase
       post :create, params: { family: { name: @family.name } }
     end
 
-    assert_redirected_to family_path(Family.last)
+    assert_redirected_to families_path
   end
 
   test "should show family" do
@@ -35,7 +35,7 @@ class FamiliesControllerTest < ActionController::TestCase
 
   test "should update family" do
     patch :update, params: { id: @family, family: { name: @family.name } }
-    assert_redirected_to family_path(@family)
+    assert_redirected_to families_path
   end
 
   test "should destroy family" do
