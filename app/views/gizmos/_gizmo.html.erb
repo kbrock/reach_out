@@ -1,0 +1,7 @@
+<%= form_for gizmo, html: {class: "gizmo-widget" } do |f| %>
+  <%= f.hidden_field :status, :value => !gizmo.status %>
+  <label>
+    <%= f.submit "update", style: "display: none" %>
+    <%= gizmo_svg(gizmo) %>
+  </label>
+<% end %>

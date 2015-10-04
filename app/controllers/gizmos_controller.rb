@@ -14,11 +14,13 @@ class GizmosController < ApplicationController
 
   # GET /gizmos/new
   def new
-    @gizmo = Gizmo.new
+    @gizmo = Gizmo.new(gizmo_params)
+    @families = Family.all
   end
 
   # GET /gizmos/1/edit
   def edit
+    @families = Family.all
   end
 
   # POST /gizmos
@@ -28,7 +30,7 @@ class GizmosController < ApplicationController
 
     respond_to do |format|
       if @gizmo.save
-        format.html { redirect_to @gizmo, notice: 'Gizmo was successfully created.' }
+        format.html { redirect_to @gizmo.family || @gizmo, notice: 'Gizmo was successfully created.' }
         format.json { render :show, status: :created, location: @gizmo }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class GizmosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gizmo_params
-      params.require(:gizmo).permit(:name, :status, :color)
+      params[:gizmo] ? params.require(:gizmo).permit(:name, :status, :color, :family_id) : {}
     end
 end

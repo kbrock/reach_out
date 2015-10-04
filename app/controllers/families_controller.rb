@@ -42,7 +42,7 @@ class FamiliesController < ApplicationController
   def update
     respond_to do |format|
       if @family.update(family_params)
-        format.html { redirect_to @family, notice: 'Family was successfully updated.' }
+        format.html { redirect_to families_url, notice: 'Family was successfully updated.' }
         format.json { render :show, status: :ok, location: @family }
       else
         format.html { render :edit }

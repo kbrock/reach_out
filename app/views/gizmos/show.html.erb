@@ -1,19 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @gizmo.name %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @gizmo.status %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @gizmo.color %>
-</p>
-
+<%= render @gizmo %>
+ ​
 <%= link_to 'Edit', edit_gizmo_path(@gizmo) %> |
-<%= link_to 'Back', gizmos_path %>
+<% if @gizmo.family %>
+  F: <%= link_to @gizmo.family.name, family_path(@gizmo.family) %>
+<% else %>
+  <%= link_to 'gizmos', gizmos_path %>
+<% end %>
