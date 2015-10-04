@@ -8,4 +8,9 @@ module ApplicationHelper
       <text x="50" y="15" class="gizmo-name">#{name}</text>
       </svg>}
   end
+
+  def new_gizmo(attrs = nil)
+    attrs = attrs.present? ? {:gizmo => attrs} : {}
+    link_to gizmo_svg, new_gizmo_path(attrs), class: "gizmo-new"
+  end
 end

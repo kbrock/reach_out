@@ -2,5 +2,5 @@
 <div>
 <%= link_to gizmo_svg(family), edit_family_path(family) %>
 <%= render family.gizmos %>
-<%= link_to gizmo_svg, new_gizmo_path(:gizmo => {:family_id => family.id}), class: "gizmo-new" %>
+<%= new_gizmo(:family_id => family.id) %>
 </div>
