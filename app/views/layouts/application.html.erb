@@ -7,10 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- images for the pages to ue -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display:none">
+<defs>
+  <!-- height / width = 110 -->
+  <g id="gizmo">
+    <rect x="5" y="5" width="100" height="100" rx="10" ry="10" style="stroke-width:5;"></rect>
+  </g>
+</defs>
+</svg>
 
 <%= yield %>
 
-<%= link_to 'families', families_path %> <%= link_to 'gizmos', gizmos_path %>
-
+<%= link_to 'families', families_path %>
 </body>
 </html>

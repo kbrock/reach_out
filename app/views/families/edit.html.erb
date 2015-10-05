@@ -2,5 +2,11 @@
 
 <%= render 'form', family: @family %>
 
+<% @family.gizmos.each do |gizmo| %>
+  <%= render 'gizmos/form', gizmo: gizmo %>
+<% end %>
+
+<%= render 'gizmos/form', gizmo: Gizmo.new(:family => @family) %>
+
 <%= link_to 'Cancel', @family %>
 <br>

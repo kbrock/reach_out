@@ -19,6 +19,7 @@ class FamiliesController < ApplicationController
 
   # GET /families/1/edit
   def edit
+    @families = Family.all
   end
 
   # POST /families

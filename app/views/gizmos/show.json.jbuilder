@@ -1,1 +1,1 @@
-json.extract! @gizmo, :id, :name, :status, :color, :password, :created_at, :updated_at
+json.extract! @gizmo, :id, :name, :status, :color, :updated_at
