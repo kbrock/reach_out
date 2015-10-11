@@ -3,7 +3,7 @@
 <h1><%= link_to 'families', families_path %></h1>
 
 <div id="families">
-<%= render @families, spacer_template: "_br" %>
+<%= render @families %>
 </div>
 <div>
 <%= link_to gizmo_svg, new_family_path, class: "family family-new" %>
