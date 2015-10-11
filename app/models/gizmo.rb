@@ -14,6 +14,8 @@ class Gizmo < ActiveRecord::Base
   validates :name, :presence => true, uniqueness: { scope: :family_id }
   validates :color, :presence => { message: "color is required" }
 
+  delegate :fill_color, to: :family, prefix: true
+
   def color=(c)
     c &&= COLOR_MAP[c.downcase] || c.downcase.gsub('#','')
     self.color_int = self.class.int_from_hex(c)
