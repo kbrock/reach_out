@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Families</h1>
+<h1><%= link_to 'families', families_path %></h1>
+
 <div id="families">
 <%= render @families, spacer_template: "_br" %>
 </div>

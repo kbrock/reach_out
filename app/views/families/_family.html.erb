@@ -1,6 +1,8 @@
 
-<div id="family=<%=family.id%>">
-<%= link_to gizmo_svg(family), edit_family_path(family), class: "family" %>
-<%= render family.gizmos %>
+<div id="family-<%=family.id%>">
+<%= link_to gizmo_svg(family), edit_family_path(family), class: "family-edit" %>
+  <div id="family-<%=family.id%>-members" class="family-members">
+    <%= render family.gizmos %>
+  </div>
 <%= new_gizmo(:family_id => family.id) %>
 </div>

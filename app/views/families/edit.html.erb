@@ -1,4 +1,4 @@
-<h1>Editing <%= @family.name || "Family" %></h1>
+<h1><%= link_to 'families', families_path %> > <%= @family.name || "Family" %></h1>
 
 <%= render 'form', family: @family %>
 
