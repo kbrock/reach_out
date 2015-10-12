@@ -4,5 +4,7 @@
   <div id="family-<%=family.id%>-members" class="family-members">
     <%= render family.gizmos %>
   </div>
+<% if can?(:create, family.gizmos.new) -%>
 <%= new_gizmo(:family_id => family.id) %>
+<% end %>
 </div>
