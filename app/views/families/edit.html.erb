@@ -2,6 +2,7 @@
 
 <%= render 'form', family: @family %>
 
+<h2>Gizmos</h2>
 <% @family.gizmos.each do |gizmo| %>
   <%= render 'gizmos/form', gizmo: gizmo %>
 <% end %>

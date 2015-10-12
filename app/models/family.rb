@@ -1,6 +1,8 @@
 class Family < ActiveRecord::Base
   has_many :gizmos
 
+  include ColorMixin
+
   def fill_color_int
     gizmos.map(&:fill_color_int).sum
   end
@@ -10,10 +12,10 @@ class Family < ActiveRecord::Base
   end
 
   def fill_color
-    status ? Gizmo.hex_from_int(fill_color_int) : Gizmo::UNLIT
+    status ? hex_from_int(fill_color_int) : UNLIT
   end
 
   def stroke_color
-    Gizmo::BLACK
+    BLACK
   end
 end

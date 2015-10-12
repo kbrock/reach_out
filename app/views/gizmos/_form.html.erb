@@ -17,13 +17,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :status %><br>
-    <%= f.check_box :status %>
-  </div>
-
-  <div class="field">
-    <%= f.label :color, style: "background-color: #{gizmo.stroke_color}" %><br>
-    <%= f.text_field :color %>
+    <%= f.label :color, style: "color: #{gizmo.color_contrast};background-color: #{gizmo.color}" %> <%= gizmo.color_int %><br>
+    <%= f.check_box :status, style: "color: #{gizmo.color_contrast}; background-color: #{gizmo.stroke_color}" %>
+    <%= f.text_field :color, style: "color: #{gizmo.color_contrast}; background-color: #{gizmo.stroke_color}" %>
   </div>
 
   <div class="field">
