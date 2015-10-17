@@ -25,3 +25,30 @@ text.gizmo-name {
   stroke: black;
   text-decoration: none;
 }
+
+.field-radio {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: relative;
+  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
+.field-radio label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background: #999; /* unchecked will hide the label color */
+  box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+.field-radio input[type=checkbox]:checked + label {
+  background: none; /* hide hide - so outter div color shows */
+}
+.field-radio input { display:none; }

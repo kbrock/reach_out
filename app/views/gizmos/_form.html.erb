@@ -16,10 +16,10 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :color, style: "color: #{gizmo.color_contrast};background-color: #{gizmo.color}" %> <%= gizmo.color_int %><br>
+  <div class="field field-radio" style="background: <%=gizmo.color%>">
+    <%#= f.label :status %>
     <%= f.check_box :status, style: "color: #{gizmo.color_contrast}; background-color: #{gizmo.stroke_color}" %>
-    <%= f.text_field :color, style: "color: #{gizmo.color_contrast}; background-color: #{gizmo.stroke_color}" %>
+    <%= f.label :status, "&nbsp;".html_safe %>
   </div>
 
   <div class="field">
