@@ -65,6 +65,6 @@ class Color
   end
 
   UNLIT = Color.new(0, "#dddddd")
-  BLACK = Color.new("b")
+  BLACK = Color.new("n")
   WHITE = Color.new("w")
 end
