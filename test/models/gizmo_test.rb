@@ -19,15 +19,6 @@ class GizmoTest < ActiveSupport::TestCase
     assert_equal "#ff0000", gizmo(:color => "r").color
   end
 
-  #test_status
-  test "text_status lit" do
-    assert_equal "Unlit", gizmo(:status => false).text_status
-  end
-
-  test "text_status unlit" do
-    assert_equal "Lit", gizmo(:status => true).text_status
-  end
-
   test "fill_color lit" do
     assert_equal "#ff0000", gizmo(:status => true, :color => "r").fill_color
   end

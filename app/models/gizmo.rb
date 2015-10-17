@@ -15,10 +15,6 @@ class Gizmo < ActiveRecord::Base
     hex_from_int(color_int)
   end
 
-  def text_status
-    status ? "Lit" : "Unlit"
-  end
-
   def fill_color
     status ? color : UNLIT
   end
