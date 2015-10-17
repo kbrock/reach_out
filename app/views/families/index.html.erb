@@ -5,6 +5,8 @@
 <div id="families">
 <%= render @families %>
 </div>
+<% if can?(:create, Family) -%>
 <div>
 <%= link_to gizmo_svg, new_family_path, class: "family family-new" %>
 </div>
+<% end %>

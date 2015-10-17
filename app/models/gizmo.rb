@@ -1,14 +1,5 @@
 class Gizmo < ActiveRecord::Base
-  UNLIT="#dddddd"
-  BLACK="#000000"
-
-  COLOR_MAP = {
-    "n" => "000000",
-    "r" => "ff0000",
-    "g" => "00ff00",
-    "b" => "0000ff",
-    "w" => "ffffff"
-  }
+  include ColorMixin
 
   belongs_to :family
   validates :name, :presence => true, uniqueness: { scope: :family_id }
@@ -17,12 +8,11 @@ class Gizmo < ActiveRecord::Base
   delegate :fill_color, to: :family, prefix: true
 
   def color=(c)
-    c &&= COLOR_MAP[c.downcase] || c.downcase.gsub('#','')
-    self.color_int = self.class.int_from_hex(c)
+    self.color_int = int_from_hex(hex_from_abbreviation(c))
   end
 
   def color
-    "#{self.class.hex_from_int(color_int)}"
+    hex_from_int(color_int)
   end
 
   def text_status
@@ -39,13 +29,5 @@ class Gizmo < ActiveRecord::Base
 
   def stroke_color
     color
-  end
-
-  def self.int_from_hex(h)
-    h ? h.sub('#','').gsub("00","0").gsub("ff","1").to_i(2) : 0
-  end
-
-  def self.hex_from_int(i)
-    "##{i.to_s(2).rjust(3,'0').gsub("0","00").gsub("1","ff")}"
   end
 end

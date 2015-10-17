@@ -6,7 +6,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def gizmo(args = {})
-    Gizmo.new(args).tap {|g| g.valid? }
+    Gizmo.new(args).tap { |g| g.valid? }
   end
 
   def family(args = {})
