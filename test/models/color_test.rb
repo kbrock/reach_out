@@ -45,6 +45,15 @@ class ColorTest < ActiveSupport::TestCase
     assert !c("r").light?
   end
 
+  test "#contrast" do
+    assert_equal "#ffffff", c("n").contrast.to_s
+    assert_equal "#ffffff", c("r").contrast.to_s
+    assert_equal "#ffffff", c("g").contrast.to_s
+    assert_equal "#ffffff", c("b").contrast.to_s
+    assert_equal "#000000", c("#ff00ff").contrast.to_s
+    assert_equal "#000000", c("w").contrast.to_s
+  end
+
   private
 
   def c(c, h = nil)
