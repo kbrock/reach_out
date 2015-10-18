@@ -15,12 +15,12 @@
   <%= link_to 'Families', families_path %> >
   <%= f.collection_select(:family_id, @families, :id, :name) %> >
   <%= f.text_field :name, placeholder: "name" %>
-  <%= f.text_field :color, style: "color: #{gizmo.color_contrast}; background-color: #{gizmo.stroke_color}", placeholder: "color" %>
+  <%= f.text_field :color, style: "color: #{gizmo.color.contrast}; background-color: #{gizmo.stroke}", placeholder: "color" %>
 </h1>
 
   <div class="field field-radio" style="background: <%=gizmo.color%>">
     <%#= f.label :status %>
-    <%= f.check_box :status, style: "color: #{gizmo.color_contrast}; background-color: #{gizmo.stroke_color}" %>
+    <%= f.check_box :status, style: "color: #{gizmo.color.contrast}; background-color: #{gizmo.stroke}" %>
     <%= f.label :status, "&nbsp;".html_safe %>
   </div>
 

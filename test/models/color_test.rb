@@ -54,6 +54,10 @@ class ColorTest < ActiveSupport::TestCase
     assert_equal "#000000", c("w").contrast.to_s
   end
 
+  test "unlit is black" do
+    assert Color::UNLIT.black?
+  end
+
   private
 
   def c(c, h = nil)

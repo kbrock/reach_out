@@ -1,4 +1,10 @@
 json.array!(@gizmos) do |gizmo|
-  json.extract! gizmo, :id, :name, :status, :color, :fill_color, :family_fill_color, :updated_at
+  json.ignore_nil!
+  json.extract! gizmo, :id, :name, :status, :updated_at
+
+  json.color gizmo.color.to_s
+  json.fill gizmo.fill.to_s
+  json.family_fill gizmo.family_fill.to_s
+
   json.url gizmo_url(gizmo, format: :json)
 end

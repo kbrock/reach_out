@@ -2,22 +2,14 @@ class Family < ActiveRecord::Base
   has_many :gizmos
 
   def fill
-    @fill ||= Color.combine(gizmos.map(&:fill))
-  end
-
-  def fill_color_int # deprecate: use fill instead
-    @fill.to_i
+    @fill ||= Color.combine(gizmos.map(&:fill)).non_black || Color::UNLIT
   end
 
   def status
-    !@fill.black?
+    fill.non_black?
   end
 
-  def fill_color # deprecate: use fill_instead
-    fill.black? ? Color::UNLIT : @fill.to_s
-  end
-
-  def stroke_color # rename to color
+  def stroke
     Color::BLACK
   end
 end

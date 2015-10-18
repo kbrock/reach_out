@@ -24,6 +24,14 @@ class Color
     i == 0
   end
 
+  def non_black?
+    !black
+  end
+
+  def non_black
+    self unless black?
+  end
+
   def color_value
     i / (BPC * BPC) + ((i / BPC) % BPC) + (i % BPC)
   end

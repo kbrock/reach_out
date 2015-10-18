@@ -1,7 +1,7 @@
 module GizmosHelper
   def gizmo_svg(gizmo = nil)
-    fill = gizmo.try(:fill_color) || "none"
-    stroke = gizmo.try(:stroke_color) || "black"
+    fill = gizmo.try(:fill) || "none"
+    stroke = gizmo.try(:stroke) || "black"
     name = gizmo.try(:name) || "+"
     raw %{<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       width="110px" height="110px">
