@@ -6,9 +6,9 @@ class GizmosControllerTest < ActionController::TestCase
     @gizmo = Gizmo.create(:name => 'reid', :color => '0000ff', :status => true, :family => f)
   end
 
-  test "should get index" do
+  test "should get families index" do
     get :index
-    assert_response :success
+    assert_redirected_to families_url
   end
 
   test "should get new" do
