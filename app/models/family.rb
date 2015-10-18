@@ -1,21 +1,15 @@
 class Family < ActiveRecord::Base
   has_many :gizmos
 
-  include ColorMixin
-
-  def fill_color_int
-    gizmos.map(&:fill_color_int).sum
+  def fill
+    @fill ||= Color.combine(gizmos.map(&:fill)).non_black || Color::UNLIT
   end
 
   def status
-    fill_color_int != 0
+    fill.non_black?
   end
 
-  def fill_color
-    status ? hex_from_int(fill_color_int) : UNLIT
-  end
-
-  def stroke_color
-    BLACK
+  def stroke
+    Color::BLACK
   end
 end
