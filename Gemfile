@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', github: "rails/rails"
+gem 'sprockets-rails', github: "rails/sprockets-rails"
 gem 'arel', github: "rails/arel"
 gem 'actioncable', github: 'rails/actioncable'
 gem 'rack', github: "rack/rack"
