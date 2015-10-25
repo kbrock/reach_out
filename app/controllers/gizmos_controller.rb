@@ -46,11 +46,14 @@ class GizmosController < ApplicationController
       if @gizmo.update(gizmo_params)
         format.html { redirect_to @gizmo, notice: 'Gizmo was successfully updated.' }
         format.json { render :show, status: :ok, location: @gizmo }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @gizmo.errors, status: :unprocessable_entity }
       end
     end
+    GizmoRelayJob.perform_later(@gizmo) if @gizmo.valid?
+
   end
 
   # DELETE /gizmos/1
