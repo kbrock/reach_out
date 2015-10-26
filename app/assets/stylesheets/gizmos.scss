@@ -14,7 +14,7 @@ a.gizmo, a.family {
   text-decoration: none;
 }
 
-a:hover.gizmo-new {
+a:hover.gizmo-new, a:hover.gizmo, a:hover.family-new, a:hover.family {
   background-color: default;
 }
 

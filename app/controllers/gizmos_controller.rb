@@ -4,7 +4,7 @@ class GizmosController < ApplicationController
   # GET /gizmos
   # GET /gizmos.json
   def index
-    redirect_to families_url
+    redirect_to root_url
   end
 
   # GET /gizmos/1

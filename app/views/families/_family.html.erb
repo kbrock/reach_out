@@ -1,6 +1,6 @@
 <% node_only ||= false %>
 <div id="family-<%=family.id%>" class="family">
-<%= link_to gizmo_svg(family), edit_family_path(family), class: "family-edit" %>
+<%= link_to gizmo_svg(family), edit_family_path(family), class: "family family-edit" %>
 <% unless node_only %>
   <div id="family-<%=family.id%>-members" class="family-members">
     <%= render family.gizmos %>
