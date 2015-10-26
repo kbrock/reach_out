@@ -1,10 +1,10 @@
 <div id="families">
-<% @families.each do |family| -%>
-<%= render partial: "home/family", locals: { family: family} %>
+  <%- @families.each do |family| -%>
+    <%= render partial: "family_and_members", locals: { family: family } %>
+  <%- end -%>
 </div>
-<% end %>
 <% if can?(:create, Family) -%>
 <div>
-<%= link_to gizmo_svg, new_family_path, class: "family family-new" %>
+  <%= link_to gizmo_svg, new_family_path, class: "family family-new" %>
 </div>
-<% end %>
+<% end -%>

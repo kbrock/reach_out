@@ -1,14 +1,12 @@
 <h1>
-<%= link_to "Families", families_path %> >
-<% if @gizmo.family %>
+  <%= link_to "Families", root_path %> >
+  <%- if @gizmo.family -%>
   <%= link_to @gizmo.family.name, family_path(@gizmo.family) %> >
-<% else %>
+  <%- else -%>
   no family >
-<% end %>
+  <%- end -%>
   <%= @gizmo.name || "no name" %>
-<small>
-  <%= link_to '[Edit]', edit_gizmo_path(@gizmo) %>
-</small>
+  <small><%= link_to '[Edit]', edit_gizmo_path(@gizmo) %></small>
 </h1>
 <p id="notice"><%= notice %></p>
 

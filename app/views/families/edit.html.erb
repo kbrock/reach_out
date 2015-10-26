@@ -1,29 +1,26 @@
 <%= form_for(@family) do |f| %>
   <h1>
-    <%= link_to 'families', families_path %> >
+    <%= link_to 'families', root_path %> >
     <%= f.text_field :name %>
     <%= f.submit %>
   </h1>
-<% end %>
+<% end -%>
+<% if @family.errors.any? -%>
+<div id="error_explanation">
+  <h2><%= pluralize(family.errors.count, "error") %></h2>
 
-  <% if @family.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(family.errors.count, "error") %> prohibited this family from being saved:</h2>
-
-      <ul>
-      <% family.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <%- family.errors.full_messages.each do |message| -%>
+    <li><%= message %></li>
+    <%- end -%>
+  </ul>
+</div>
+<% end -%>
 
 <h2>Gizmos</h2>
-<% @family.gizmos.each do |gizmo| %>
+<% @family.gizmos.each do |gizmo| -%>
   <%= render 'gizmos/form', gizmo: gizmo %>
-<% end %>
+<% end -%>
 
 <%= render 'gizmos/form', gizmo: Gizmo.new(:family => @family) %>
-
 <%= link_to 'Cancel', @family %>
-<br>

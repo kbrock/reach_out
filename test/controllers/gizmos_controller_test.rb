@@ -44,6 +44,6 @@ class GizmosControllerTest < ActionController::TestCase
       delete :destroy, params: { id: @gizmo }
     end
 
-    assert_redirected_to gizmos_url
+    assert_redirected_to root_url
   end
 end

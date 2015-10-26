@@ -61,7 +61,7 @@ class GizmosController < ApplicationController
   def destroy
     @gizmo.destroy
     respond_to do |format|
-      format.html { redirect_to gizmos_url, notice: 'Gizmo was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Gizmo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
