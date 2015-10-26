@@ -12,7 +12,7 @@ module Authentication
   end
 
   def edit_mode?
-    cookies.signed[:mode] == "edit"
+    cookies[:mode] ? cookies.signed[:mode] == "edit" : false
   end
 
   def can?(action = :view, object = nil)

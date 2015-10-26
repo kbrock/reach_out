@@ -11,22 +11,16 @@
     </div>
   <% end %>
 
-<h1>
-  <%= link_to 'Families', families_path %> >
-  <%= f.collection_select(:family_id, @families, :id, :name) %> >
-  <%= f.text_field :name, placeholder: "name" %>
-  <%= f.text_field :color, style: "color: #{gizmo.color.contrast}; background-color: #{gizmo.stroke}", placeholder: "color" %>
-</h1>
+  <h1>
+    <%= link_to 'Families', root_path %> >
+    <%= f.collection_select(:family_id, @families, :id, :name) %> >
+    <%= f.text_field :name, placeholder: "name" %>
+    <%= f.text_field :color, style: "color: #{gizmo.color.contrast}; background-color: #{gizmo.stroke}", placeholder: "color" %>
+  </h1>
 
   <div class="field field-radio" style="background: <%=gizmo.color%>">
-    <%#= f.label :status %>
     <%= f.check_box :status, style: "color: #{gizmo.color.contrast}; background-color: #{gizmo.stroke}" %>
     <%= f.label :status, "&nbsp;".html_safe %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :color %><br>
   </div>
 
   <div class="actions">

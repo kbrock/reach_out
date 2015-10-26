@@ -5,9 +5,9 @@ class FamiliesControllerTest < ActionController::TestCase
     @family = Family.create(:name => 'happy')
   end
 
-  test "should get index" do
+  test "should get root index" do
     get :index
-    assert_response :success
+    assert_redirected_to root_url
   end
 
   test "should get new" do
@@ -20,7 +20,7 @@ class FamiliesControllerTest < ActionController::TestCase
       post :create, params: { family: { name: @family.name } }
     end
 
-    assert_redirected_to families_path
+    assert_redirected_to families_url
   end
 
   test "should show family" do
@@ -35,7 +35,7 @@ class FamiliesControllerTest < ActionController::TestCase
 
   test "should update family" do
     patch :update, params: { id: @family, family: { name: @family.name } }
-    assert_redirected_to families_path
+    assert_redirected_to families_url
   end
 
   test "should destroy family" do
@@ -43,6 +43,6 @@ class FamiliesControllerTest < ActionController::TestCase
       delete :destroy, params: { id: @family }
     end
 
-    assert_redirected_to families_path
+    assert_redirected_to families_url
   end
 end

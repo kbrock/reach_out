@@ -4,7 +4,7 @@ class GizmosController < ApplicationController
   # GET /gizmos
   # GET /gizmos.json
   def index
-    redirect_to families_url
+    redirect_to root_url
   end
 
   # GET /gizmos/1
@@ -46,11 +46,14 @@ class GizmosController < ApplicationController
       if @gizmo.update(gizmo_params)
         format.html { redirect_to @gizmo, notice: 'Gizmo was successfully updated.' }
         format.json { render :show, status: :ok, location: @gizmo }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @gizmo.errors, status: :unprocessable_entity }
       end
     end
+    GizmoRelayJob.perform_later(@gizmo) if @gizmo.valid?
+
   end
 
   # DELETE /gizmos/1
@@ -58,7 +61,7 @@ class GizmosController < ApplicationController
   def destroy
     @gizmo.destroy
     respond_to do |format|
-      format.html { redirect_to gizmos_url, notice: 'Gizmo was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Gizmo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

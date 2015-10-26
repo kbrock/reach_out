@@ -6,9 +6,9 @@ class GizmosControllerTest < ActionController::TestCase
     @gizmo = Gizmo.create(:name => 'reid', :color => '0000ff', :status => true, :family => f)
   end
 
-  test "should get families index" do
+  test "should get root index" do
     get :index
-    assert_redirected_to families_url
+    assert_redirected_to root_url
   end
 
   test "should get new" do
@@ -21,7 +21,7 @@ class GizmosControllerTest < ActionController::TestCase
       post :create, params: { gizmo: { color: @gizmo.color, name: @gizmo.name, status: @gizmo.status } }
     end
 
-    assert_redirected_to gizmo_path(Gizmo.last)
+    assert_redirected_to gizmo_url(Gizmo.last)
   end
 
   test "should show gizmo" do
@@ -36,7 +36,7 @@ class GizmosControllerTest < ActionController::TestCase
 
   test "should update gizmo" do
     patch :update, params: { id: @gizmo, gizmo: { color: @gizmo.color, name: @gizmo.name, status: @gizmo.status } }
-    assert_redirected_to gizmo_path(@gizmo)
+    assert_redirected_to gizmo_url(@gizmo)
   end
 
   test "should destroy gizmo" do
@@ -44,6 +44,6 @@ class GizmosControllerTest < ActionController::TestCase
       delete :destroy, params: { id: @gizmo }
     end
 
-    assert_redirected_to gizmos_path
+    assert_redirected_to root_url
   end
 end

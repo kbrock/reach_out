@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+div.gizmo {
+  display: inline;
+}
+
 div.gizmo-widget {
   display: inline;
 }
@@ -14,7 +18,7 @@ a.gizmo, a.family {
   text-decoration: none;
 }
 
-a:hover.gizmo-new {
+a:hover.gizmo-new, a:hover.gizmo, a:hover.family-new, a:hover.family {
   background-color: default;
 }
 

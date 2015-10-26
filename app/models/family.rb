@@ -1,5 +1,5 @@
 class Family < ActiveRecord::Base
-  has_many :gizmos
+  has_many :gizmos, -> { order(:id) }
 
   def fill
     @fill ||= Color.combine(gizmos.map(&:fill)).non_black || Color::UNLIT

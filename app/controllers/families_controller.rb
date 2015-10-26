@@ -4,7 +4,7 @@ class FamiliesController < ApplicationController
   # GET /families
   # GET /families.json
   def index
-    @families = Family.all
+    redirect_to root_url
   end
 
   # GET /families/1

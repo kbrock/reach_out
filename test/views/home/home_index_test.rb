@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FamiliesIndexTest < ActionView::TestCase
+class HomeIndexTest < ActionView::TestCase
   def g
     gizmo(id: 5, name: "g1", color: "r", status: true)
   end
@@ -12,7 +12,7 @@ class FamiliesIndexTest < ActionView::TestCase
   test "displays a gizmo" do
     @families = [f]
 
-    render template: "families/index", formats: "json"
+    render template: "home/index", formats: "json"
     assert_equal([
       "id" => 3,
       "name" => "f1",
