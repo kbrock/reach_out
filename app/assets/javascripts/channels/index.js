@@ -1,5 +1,5 @@
 function hostname(url) {
-  parser = document.createElement('a');
+  var parser = document.createElement('a');
   parser.href = url;
   parser.href = parser.href;
   parser.protocol = parser.protocol.replace("http", "ws");

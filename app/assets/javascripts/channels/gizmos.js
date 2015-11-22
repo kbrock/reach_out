@@ -3,7 +3,7 @@ App.gizmos = App.cable.subscriptions.create("GizmosChannel", {
     console.debug("data", data);
     var node = $(data.id);
     if (node) {
-      node.html(data.gizmo);
+      node.html(data.html);
     }
     //gizmos.append(data.gizmo);
     // gizmos.scrollTop(gizmos.height() + 1000);
