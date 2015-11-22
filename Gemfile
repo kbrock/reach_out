@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks', github: "rails/turbolinks"
 
 gem 'jbuilder', '~> 2.0'
+gem 'faye-websocket'
 
 group :development, :production do
   gem 'puma'
