@@ -24,6 +24,12 @@ class FamilyTest < ActiveSupport::TestCase
                                                {:status => true, :color => "b"}]).fill.to_s
   end
 
+  test 'fill 3 lit gizmos' do
+    assert_equal "#ffffff", family(:gizmos => [{:status => true, :color => "r"},
+                                               {:status => true, :color => "g"},
+                                               {:status => true, :color => "b"}]).fill.to_s
+  end
+
   test 'stroke works' do
     assert_equal "#000000", Family.new.stroke.to_s
   end
